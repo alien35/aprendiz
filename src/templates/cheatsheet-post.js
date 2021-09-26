@@ -10,15 +10,13 @@ import * as styles from './blog-post.module.css'
 
 class CheatsheetPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const previous = get(this.props, 'data.previous')
-    const next = get(this.props, 'data.next')
-
+    const post = get(this.props, 'data.contentfulCheatsheet')
+    console.log(post, 'post')
     return (
       <Layout location={this.props.location}>
         <Seo
           title={post.title}
-          description={post.description.childMarkdownRemark.excerpt}
+          description={"TODO"}
         />
         {
           /*
@@ -74,45 +72,15 @@ class CheatsheetPostTemplate extends React.Component {
 export default CheatsheetPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
+  query CheatsheetPostBySlug(
     $slug: String!
-    $previousPostSlug: String
-    $nextPostSlug: String
   ) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+    contentfulCheatsheet(slug: { eq: $slug }) {
       slug
       title
-      author {
-        name
+      snippets {
+        raw
       }
-      publishDate(formatString: "MMMM Do, YYYY")
-      rawDate: publishDate
-      heroImage {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
-        resize(height: 630, width: 1200) {
-          src
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-          timeToRead
-        }
-      }
-      tags
-      description {
-        childMarkdownRemark {
-          excerpt
-        }
-      }
-    }
-    previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
-      slug
-      title
-    }
-    next: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
-      slug
-      title
     }
   }
 `
