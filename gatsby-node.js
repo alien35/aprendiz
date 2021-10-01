@@ -15,6 +15,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
+        allContentfulCheatsheet {
+          nodes {
+            title
+            slug
+          }
+        }
       }
     `
   )
@@ -50,4 +56,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  const cheatsheetPost = path.resolve('./src/templates/cheatsheet-post.js')
+
+  const cheatsheetPosts = result.data.allContentfulCheatsheet.nodes
+
+  // console.log(cheatsheetPosts, 'cheatsheetPosts');
+
+  if (cheatsheetPosts.length > 0) {
+    cheatsheetPosts.forEach((post) => {
+      createPage({
+        path: `/cheatsheet/${post.slug}/`,
+        component: cheatsheetPost,
+        context: {
+          slug: post.slug
+        },
+      })
+    })
+  }
+
 }
