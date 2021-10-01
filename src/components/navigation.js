@@ -31,7 +31,7 @@ const Navigation = () => (
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="https://main.d2xsod1hmib8yc.amplifyapp.com/" activeClassName="active">
+        <Link to="https://app.acapli.com/" activeClassName="active">
           Curso
         </Link>
       </li>
