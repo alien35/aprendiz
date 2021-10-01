@@ -6,7 +6,9 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Tags from '../components/tags'
-import * as styles from './blog-post.module.css'
+import './cheatsheet.module.css';
+import '../components/global.css';
+import * as styles from './cheatsheet.module.css'
 
 class CheatsheetPostTemplate extends React.Component {
   render() {
@@ -16,8 +18,16 @@ class CheatsheetPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Seo
           title={post.title}
-          description={"TODO"}
+          description={post.description.childMarkdownRemark.excerpt}
         />
+
+        <div className={styles.container}>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: post.content.childMarkdownRemark.html,
+            }}
+          />
+        </div>
         {
           /*
           <Hero
@@ -78,8 +88,15 @@ export const pageQuery = graphql`
     contentfulCheatsheet(slug: { eq: $slug }) {
       slug
       title
-      snippets {
-        raw
+      description {
+        childMarkdownRemark {
+          excerpt
+        }
+      }
+      content {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

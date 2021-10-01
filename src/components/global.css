@@ -99,3 +99,51 @@ pre,
 code {
   font-family: var(--font-monospace);
 }
+
+.grid-section {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.grid-section > div {
+  flex: 1;
+}
+
+.grid-section > div:nth-child(1) {
+  padding: 0 2rem 0 0;
+}
+
+.grid-section > div:nth-child(2) {
+  background-color: #211e2f;
+  color: #939598;
+  padding: 1rem;
+  font-family: Monaco,Menlo,"Ubuntu Mono","Droid Sans Mono",Consolas,monospace;
+}
+
+.colored-code-red {
+  color: #e85d7f;
+}
+
+.colored-code-orange {
+  color: #ff8973;
+}
+
+.colored-code-white {
+  color: #ffffff;
+}
+
+.colored-code-blue {
+  color: #83fff5;
+}
+
+.colored-code-yellow {
+  color: #ffe083;
+}
+
+.grid-blank {
+  background: none !important;
+}
+
+.colored-code-purple {
+  color: #cc7bc2;
+}
