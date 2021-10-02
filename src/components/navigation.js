@@ -7,7 +7,7 @@ const Navigation = () => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       <span className={styles.logo} />
-      <span className={styles.navigationItem}>Aprendiz en programación</span>
+      <span className={styles.navigationItem}>Acapli</span>
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
