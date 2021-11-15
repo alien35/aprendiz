@@ -8,10 +8,13 @@ const Hero = ({ image, title, content }) => (
     {image && (
       <GatsbyImage className={styles.image} alt={title} image={image} />
     )}
+    <a className={styles.github} target="_blank" href="https://github.com/alien35/maestros-de-desarollo-web">github</a>
+    
     <div className={styles.details}>
       <h1 className={styles.title}>{title}</h1>
-      {content && <p className={styles.content}>{content}</p>}
+      
     </div>
+    
   </div>
 )
 

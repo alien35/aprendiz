@@ -69,3 +69,9 @@
     padding: var(--space-3xl) var(--size-gutter) 0 0;
   }
 }
+
+.github {
+  z-index: 999;
+  padding-top: 1rem;
+  margin-left: 3rem;
+}

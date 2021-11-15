@@ -25,16 +25,6 @@ const Navigation = () => (
           Cheatsheet
         </Link>
       </li>
-      <li className={styles.navigationItem}>
-        <Link to="https://programacion.freeflarum.com/" activeClassName="active">
-          Foro
-        </Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="https://app.acapli.com/" activeClassName="active">
-          Curso
-        </Link>
-      </li>
     </ul>
   </nav>
 )
